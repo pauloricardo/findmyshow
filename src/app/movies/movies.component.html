@@ -1,0 +1,32 @@
+<h3>Filmes mais populares</h3>
+
+<form action="">
+  <div class="form-group">
+    <label for="">Buscar Filme</label>
+    <input type="text" name="moviesearch" class="form-control" [(ngModel)]="movie.title">
+    <button type="button" (click)="search(movie.title)">Buscar</button>
+  </div>
+</form>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Título</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let m of movies">
+    <td>{{ m.id }}</td>
+    <td>{{ m.title }}</td>
+    <td>
+      <a [routerLink]="['/movies/' + m.id]" class="btn btn-default btn-xs" >Ver</a>
+    </td>
+  </tr>
+  </tbody>  
+</table>
+
+<ul class="pagination">
+    <li *ngFor="let page of total_pages"><a href="javascript:;" (click)="paginate(page)">{{page}}</a></li>
+  </ul>
