@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MoviesModule } from './movies/movies.module';
+import { MaterializeModule } from 'ng2-materialize';
 
 const appRoutes: Routes = [
   {path:'', redirectTo:'/movies', pathMatch:'full'}
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
+    MaterializeModule.forRoot(),
     MoviesModule,
     FormsModule,
     HttpModule

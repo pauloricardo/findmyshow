@@ -21,6 +21,8 @@ export class MoviesComponent  {
         this.httpService.builder(this.strBuilder, this.page,0,this.searchMovie)
         .list().then((res) => {
                 this.movies = res.results.sort((a,b) => {
+                    return a.vote_count - b.vote_count;                    
+                }).sort((a,b) => {
                     return a.id - b.id;
                 });
                 this.pages(res.total_pages);
